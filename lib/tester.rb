@@ -7,18 +7,19 @@ class Dog
     @@all = []
 
 
-    
+    def save(name)
+        @@all << name
+        
+    end
 
     def initialize(name)
         @name = name
-        #@@all << self
-        save
+        @@all << @name
+        #save(name)
     end
 
-    def save
-        @@all << self
-        
-    end
+    
+
 
     def self.all
         #binding.pry
@@ -27,14 +28,12 @@ class Dog
 
     def self.print_all
         @@all.each do |doggy|
-            puts doggy.name
+            puts doggy
         end
     end
-
-    def self.clear_all
-        @@all.clear
-    end
-
-
-
 end
+
+Dog.new("Pluto")
+Dog.new("Fido")
+Dog.new("Maddy")
+p Dog.all
