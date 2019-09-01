@@ -1,27 +1,31 @@
 class Dog 
+  @@all=[]
   
-@@all =[]
-
-attr_reader :name
-
   def initialize(name)
     @name=name
-    save
-  end 
+    save  
+  end
+  
+  def name
+    @name
+  end
   
   def self.all
-    @@all
+    @@all 
+  end
+  
+  def self.print_all
+    @@all.collect do |dog|
+      puts dog.name
+    end
+  end
+  
+  def save  
+    @@all << self
   end
   
   def self.clear_all
     @@all.clear
   end
   
-  def self.print_all
-    puts @@all.collect{|puppy| puppy.name} 
-  end
-  
-  def save 
-    @@all << self
-  end 
 end
